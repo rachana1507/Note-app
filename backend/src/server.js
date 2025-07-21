@@ -11,14 +11,16 @@ dotenv.config();
 //End point:- A combination of a URL + HTTP method that lets 
 // the client interact with a specific resource.
 
+
 const app=express();
 const PORT=process.env.PORT || 5001
 connectDB();
+
+//middleware
+app.use(express.json())
 
 app.use("/api/notes",notesRoutes)
   
 app.listen(PORT, ()=> {
     console.log("Server started on PORT:",PORT);
 });
-
-
